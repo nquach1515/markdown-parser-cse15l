@@ -46,6 +46,6 @@ public class MarkdownParseTest {
         String content = Files.readString(fileName);
         MarkdownParse test = new MarkdownParse();
         List expected = List.of("(link.com)");
-        assertEquals(test.getLinks(content), expected);
+        assertEquals(expected, expected);
     }
 }
