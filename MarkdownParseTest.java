@@ -19,7 +19,7 @@ public class MarkdownParseTest {
         String content = Files.readString(fileName);
         MarkdownParse test = new MarkdownParse();
         List expected = List.of("https://something.com", "some-thing.html");
-        assertEquals(test.getLinks(content), 5);
+        assertEquals(test.getLinks(content), 1000);
     }
 
     @Test
