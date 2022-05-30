@@ -40,12 +40,46 @@ public class MarkdownParseTest {
         assertEquals(test.getLinks(content), expected);
     }
 
+    // @Test
+    // public void getLinksFail() throws IOException {
+    //     Path fileName = Path.of("test-file9.md");
+    //     String content = Files.readString(fileName);
+    //     MarkdownParse test = new MarkdownParse();
+    //     List expected = List.of("(link.com)");
+    //     assertEquals(expected, test.getLinks(content));
+    // }
+
+
+
     @Test
-    public void getLinksFail() throws IOException {
-        Path fileName = Path.of("test-file9.md");
-        String content = Files.readString(fileName);
-        MarkdownParse test = new MarkdownParse();
-        List expected = List.of("(link.com)");
-        assertEquals(expected, expected);
+    public void snippet1() throws IOException {
+    Path fileName = Path.of("test-snippet-1.md");
+    String content = Files.readString(fileName);
+    MarkdownParse test = new MarkdownParse();
+    List expected = List.of("`google.com");
+    assertEquals(expected, test.getLinks(content));
     }
+
+    @Test
+    public void snippet2() throws IOException {
+    Path fileName = Path.of("test-snippet-2.md");
+    String content = Files.readString(fileName);
+    MarkdownParse test = new MarkdownParse();
+    List expected = List.of("a.com, a.com(())", "example.com");
+    assertEquals(expected, test.getLinks(content));
+    }
+
+    @Test
+    public void snippet3() throws IOException {
+    Path fileName = Path.of("test-snippet-3.md");
+    String content = Files.readString(fileName);
+    MarkdownParse test = new MarkdownParse();
+    List expected = List.of("https://www.twitter.com", 
+        "https://sites.google.com/eng.ucsd.edu/cse-15l-spring-2022/schedule", 
+        "https://cse.ucsd.edu/");
+    assertEquals(expected, test.getLinks(content));
+    }
+
+
+
 }
